@@ -28,6 +28,8 @@ The project includes the following tables:
 - **reports**
 - **detections**
 - **settings**
+![DATABASE](https://github.com/user-attachments/assets/ab718c45-0fa4-42f9-b31e-e05ad847c2a7)
+
 
 ### Features
 
