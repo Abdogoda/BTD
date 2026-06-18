@@ -53,11 +53,13 @@ class AppServiceProvider extends ServiceProvider{
     public function boot(): void{
         Paginator::useBootstrap();
 
-        $siteSettings = cache()->remember(
-            'siteSettings',
-            3600,
-            fn() => Setting::all()->keyBy('key')
-        );
-        view()->share('siteSettings', $siteSettings);
+        view()->composer('*', function ($view) {
+            $siteSettings = cache()->remember(
+                'siteSettings',
+                3600,
+                fn() => Setting::all()->keyBy('key')
+            );
+            $view->with('siteSettings', $siteSettings);
+        });
     }
 }
